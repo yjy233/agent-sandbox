@@ -12,6 +12,8 @@
 | [04 用户态内核：gVisor](04-gvisor.md) | Sentry/Gofer 架构、syscall 拦截、兼容性与性能 | runsc、netstack、GKE Sandbox |
 | [05 虚拟机与 MicroVM](05-vm.md) | QEMU/KVM、Firecracker、Kata Containers、macOS 虚拟化 | 硬件虚拟化、快照恢复 |
 | [06 Agent 沙箱工程实践](06-agent-practice.md) | 文件/网络/资源管控、E2B/Modal 等产品、选型指南 | 出口网络白名单、纵深防御 |
+| [07 知名沙箱产品全景](07-sandbox-products.md) | E2B/Modal/Daytona/Vercel/Cloudflare/Fly 与开源运行时 | Firecracker、gVisor、srt |
+| [08 知名 Agent 产品的沙箱技术](08-agent-products.md) | Claude Code/Codex/Devin/Manus/Cursor/Copilot 逐个拆解 | agent-in-sandbox、双阶段容器 |
 
 ## 一句话总结各层隔离
 

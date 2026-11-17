@@ -12,6 +12,8 @@ AI Agent 沙箱技术教学项目：自上而下讲清楚从 OS 软沙箱到虚�
 4. [用户态内核：gVisor](docs/04-gvisor.md)
 5. [虚拟机与 MicroVM（Firecracker / Kata / QEMU）](docs/05-vm.md)
 6. [Agent 沙箱工程实践与选型](docs/06-agent-practice.md)
+7. [知名沙箱产品全景](docs/07-sandbox-products.md)
+8. [知名 Agent 产品的沙箱技术](docs/08-agent-products.md)
 
 ## 动手实验
 
