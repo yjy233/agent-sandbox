@@ -13,6 +13,12 @@ AI Agent 沙箱技术教学项目：自上而下讲清楚从 OS 软沙箱到虚�
 5. [虚拟机与 MicroVM（Firecracker / Kata / QEMU）](docs/05-vm.md)
 6. [Agent 沙箱工程实践与选型](docs/06-agent-practice.md)
 
-## 实验（规划中）
+## 动手实验
 
-`examples/` 目录将按文档顺序提供可运行 demo，见 [docs/06 第 5 节](docs/06-agent-practice.md) 的动手路线。
+[examples/](examples/README.md) 提供 6 个递进 lab，每步带自动断言（做一点测一点）：
+
+```bash
+bash examples/run-all.sh    # 环境不满足的 lab 自动 SKIP
+```
+
+macOS 本机即可完成 lab01（sandbox-exec）与 lab06（统一封装）；lab02–05 需 Linux/Docker/KVM，各 README 有环境准备指引。

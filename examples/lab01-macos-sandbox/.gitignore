@@ -1,0 +1,4 @@
+# 运行时产物
+workspace/
+fake-secret.txt
+*.log

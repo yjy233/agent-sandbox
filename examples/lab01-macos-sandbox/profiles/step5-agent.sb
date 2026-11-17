@@ -1,0 +1,42 @@
+; step5: 完整 Agent profile —— 读也收紧：系统目录 + 工作区可读，其余不可见
+; 运行方式: sandbox-exec -D WORKSPACE=/abs/path -f step5-agent.sb <cmd>
+(version 1)
+(deny default)
+
+;; ---- 进程 ----
+(allow process-exec process-fork)
+(allow signal (target self))        ; 只能给自己发信号
+(allow sysctl-read)
+
+;; ---- 读：目录遍历元数据全局放行（路径解析需要），数据读收紧 ----
+(allow file-read-metadata)
+(allow file-read* (literal "/"))
+(allow file-read*
+  (subpath "/usr/lib")
+  (subpath "/usr/share")
+  (subpath "/usr/bin")
+  (subpath "/bin")
+  (subpath "/sbin")
+  (subpath "/System")
+  (subpath "/Library/Frameworks")
+  (subpath "/Library/Developer")    ; /usr/bin/python3 是 CLT shim，需要读 CommandLineTools
+  (subpath "/Library/Preferences")
+  (subpath "/private/var/db/timezone")
+  (subpath "/private/etc")
+  (subpath "/dev")
+  (subpath (param "WORKSPACE")))
+
+;; ---- 写：仅工作区 + 必要设备 ----
+(allow file-write*
+  (subpath (param "WORKSPACE"))
+  (literal "/dev/null")
+  (literal "/dev/dtracehelper"))
+(allow file-ioctl (literal "/dev/dtracehelper"))
+
+;; ---- 网络：全禁（需要网络时改为强制走本地代理，见 docs/06）----
+(deny network*)
+
+;; ---- 必要的系统服务 ----
+(allow mach-lookup
+  (global-name "com.apple.system.logger")
+  (global-name "com.apple.system.notification_center"))

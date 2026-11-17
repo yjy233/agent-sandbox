@@ -1,0 +1,6 @@
+assets/
+snapshot/
+fc.pid
+fc.log
+fc-restore.log
+*.log

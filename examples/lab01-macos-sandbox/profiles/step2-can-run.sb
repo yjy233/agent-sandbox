@@ -1,0 +1,8 @@
+; step2: 在 deny-all 基础上，放行"程序能跑起来"的最小集合
+(version 1)
+(deny default)
+
+(allow process-exec process-fork)
+(allow file-read*)          ; 先放开全部读，step5 再收紧
+(allow sysctl-read)
+(allow file-write* (literal "/dev/null"))

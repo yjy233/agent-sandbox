@@ -1,0 +1,13 @@
+; step4: 在 step3 基础上，显式断网（Seatbelt 默认 deny 已含网络，这里显式写出便于学习）
+(version 1)
+(deny default)
+
+(allow process-exec process-fork)
+(allow file-read*)
+(allow sysctl-read)
+
+(allow file-write*
+  (subpath (param "WORKSPACE"))
+  (literal "/dev/null"))
+
+(deny network*)

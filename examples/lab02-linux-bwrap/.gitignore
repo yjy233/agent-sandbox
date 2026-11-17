@@ -1,0 +1,3 @@
+workspace/
+fake-secret.txt
+*.log

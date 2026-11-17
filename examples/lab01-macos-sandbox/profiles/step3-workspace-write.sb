@@ -1,0 +1,12 @@
+; step3: 在 step2 基础上，把"写"限制到工作区
+; 运行方式: sandbox-exec -D WORKSPACE=/abs/path -f step3-workspace-write.sb <cmd>
+(version 1)
+(deny default)
+
+(allow process-exec process-fork)
+(allow file-read*)
+(allow sysctl-read)
+
+(allow file-write*
+  (subpath (param "WORKSPACE"))
+  (literal "/dev/null"))

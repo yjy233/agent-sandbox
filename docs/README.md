@@ -32,12 +32,15 @@
 - 想系统理解 Linux/macOS 隔离原语与容器/VM 差异的开发者
 - 需要在"启动速度、资源开销、隔离强度、兼容性"之间做技术选型的人
 
-## 后续计划（本仓库）
+## 动手实验（已就绪）
 
-文档之后会补充可动手运行的 demo：
+文档配套实验在 [examples/](../examples/README.md)，每个 lab 递进步骤 + 自动断言（做一点测一点）：
 
-- `examples/macos-sandbox/`：`sandbox-exec` profile 实例
-- `examples/linux-bwrap/`：bubblewrap + seccomp 最小沙箱
-- `examples/docker-hardened/`：加固版 Docker 运行脚本
-- `examples/gvisor/`：runsc 安装与对比测试
-- `examples/firecracker/`：microVM 启动与快照实验
+- `examples/lab01-macos-sandbox/`：`sandbox-exec` profile 五步演进（macOS 本机可跑，已实测）
+- `examples/lab02-linux-bwrap/`：bubblewrap 视图隔离五步（需 Linux/Lima）
+- `examples/lab03-docker-hardened/`：默认 vs 加固容器对比 + 资源限制验证
+- `examples/lab04-gvisor/`：runsc 内核视图/兼容性/性能对比
+- `examples/lab05-firecracker/`：microVM 启动 → 快照 → 毫秒恢复
+- `examples/lab06-mini-sandbox/`：统一 `sandbox.run(policy)` 封装（macOS/Linux 双后端，已实测）
+
+一键运行：`bash examples/run-all.sh`（环境不满足的 lab 自动 SKIP）。
